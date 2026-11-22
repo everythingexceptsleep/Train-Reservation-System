@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Ticket Reservation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+  <aside class="sidebar">
+    <div class="logo">&#128649; Rail<span>Reserve</span></div>
+    <button class="nav-btn active" data-page="home">Trains</button>
+    <button class="nav-btn" data-page="avail">Availability</button>
+    <button class="nav-btn" data-page="book">Book Ticket</button>
+    <button class="nav-btn" data-page="status">PNR Status</button>
+    <button class="nav-btn" data-page="cancel">Cancel Ticket</button>
+    <button class="nav-btn" data-page="chart">Chart (Admin)</button>
+    <p class="credit">Made by ____________</p>
+  </aside>
+
+  <main>
+
+    <!-- TRAINS -->
+    <section id="home" class="page">
+      <h2>Our Trains</h2>
+      <div id="trainCards" class="cards"></div>
+
+      <div class="rules">
+        <h3>Rules</h3>
+        <ul>
+          <li>Each class (SL, 3A, 2A) has 16 berths. After that waiting list upto WL 6.</li>
+          <li>Max 4 passengers in one ticket.</li>
+          <li>Senior citizens (60+) get lower berth if available.</li>
+          <li>5% GST on AC classes.</li>
+          <li>Cancellation charges per passenger: SL Rs 120, 3A Rs 180, 2A Rs 200, Waiting list Rs 60.</li>
+          <li>When a ticket is cancelled, waiting list passengers get the free berths.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- AVAILABILITY -->
+    <section id="avail" class="page hidden">
+      <h2>Check Availability</h2>
+      <div class="form-row">
+        <div>
+          <label for="aTrain">Train</label>
+          <select id="aTrain" class="train-select"></select>
+        </div>
+        <div>
+          <label for="aDate">Date</label>
+          <input type="date" id="aDate">
+        </div>
+      </div>
+      <button class="main-btn" id="availBtn">Check</button>
+      <div id="availResult"></div>
+    </section>
+
+    <!-- BOOK -->
+    <section id="book" class="page hidden">
+      <h2>Book Ticket</h2>
+      <div class="form-row">
+        <div>
+          <label for="bTrain">Train</label>
+          <select id="bTrain" class="train-select"></select>
+        </div>
+        <div>
+          <label for="bDate">Journey Date</label>
+          <input type="date" id="bDate">
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="bClass">Class</label>
+          <select id="bClass">
+            <option value="0">Sleeper (SL)</option>
+            <option value="1">AC 3 Tier (3A)</option>
+            <option value="2">AC 2 Tier (2A)</option>
+          </select>
+        </div>
+        <div>
+          <label for="bCount">No. of Passengers</label>
+          <select id="bCount">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="passengerBox"></div>
+
+      <button class="main-btn" id="bookBtn">Book Now</button>
+      <div id="bookResult"></div>
+    </section>
+
+    <!-- PNR STATUS -->
+    <section id="status" class="page hidden">
+      <h2>PNR Status</h2>
+      <label for="sPnr">PNR Number</label>
+      <input type="number" id="sPnr" placeholder="6 digit PNR">
+      <button class="main-btn" id="statusBtn">Get Status</button>
+      <div id="statusResult"></div>
+    </section>
+
+    <!-- CANCEL -->
+    <section id="cancel" class="page hidden">
+      <h2>Cancel Ticket</h2>
+      <label for="cPnr">PNR Number</label>
+      <input type="number" id="cPnr" placeholder="6 digit PNR">
+      <button class="main-btn danger" id="cancelBtn">Cancel Ticket</button>
+      <div id="cancelResult"></div>
+    </section>
+
+    <!-- CHART -->
+    <section id="chart" class="page hidden">
+      <h2>Reservation Chart</h2>
+      <div class="form-row">
+        <div>
+          <label for="adminPass">Admin Password</label>
+          <input type="password" id="adminPass">
+        </div>
+        <div>
+          <label for="chTrain">Train</label>
+          <select id="chTrain" class="train-select"></select>
+        </div>
+        <div>
+          <label for="chDate">Date</label>
+          <input type="date" id="chDate">
+        </div>
+      </div>
+      <button class="main-btn" id="chartBtn">Show Chart</button>
+      <div id="chartResult"></div>
+    </section>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
